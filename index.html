@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>40 juegos recomendados — PS5 & Switch 2</title>
+<style>
+:root {
+  --bg:#090b10; --panel:#11151d; --panel2:#171c27; --text:#f4f7fb; --muted:#9aa6b6;
+  --line:#262d3a; --accent:#7c8cff; --accent2:#53d6c6; --warn:#ffbd59;
+  --shadow:0 16px 42px rgba(0,0,0,.28); --radius:20px;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:
+    radial-gradient(circle at 10% 0%, rgba(124,140,255,.16), transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(83,214,198,.10), transparent 22%),
+    var(--bg);
+  color:var(--text); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+button,input,select { font:inherit; }
+button { cursor:pointer; }
+a { color:inherit; }
+.shell { max-width:1480px; margin:auto; padding:28px; }
+.hero {
+  display:grid; grid-template-columns:1.55fr .85fr; gap:22px; margin-bottom:22px;
+}
+.hero-main,.hero-side,.toolbar,.card,.compare-drawer,.modal-card,.strategy {
+  background:rgba(17,21,29,.92); border:1px solid var(--line); box-shadow:var(--shadow);
+}
+.hero-main { border-radius:28px; padding:34px; overflow:hidden; position:relative; }
+.hero-main:after {
+  content:""; position:absolute; width:290px; height:290px; right:-90px; top:-100px;
+  background:radial-gradient(circle, rgba(124,140,255,.32), transparent 68%);
+}
+.eyebrow { font-size:12px; text-transform:uppercase; letter-spacing:.16em; color:var(--accent2); font-weight:800; }
+h1 { margin:8px 0 12px; font-size:clamp(34px,5vw,68px); line-height:.96; max-width:900px; }
+.hero-main p { max-width:820px; color:var(--muted); font-size:17px; line-height:1.6; }
+.chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
+.chip { padding:8px 11px; border:1px solid var(--line); border-radius:999px; color:#dbe3ef; background:#0d1118; font-size:13px; }
+.hero-side { border-radius:28px; padding:24px; display:grid; gap:14px; align-content:start; }
+.stat { background:var(--panel2); border:1px solid var(--line); border-radius:18px; padding:18px; }
+.stat strong { display:block; font-size:30px; }
+.stat span { color:var(--muted); font-size:13px; }
+.toolbar {
+  position:sticky; top:10px; z-index:20; border-radius:20px; padding:14px;
+  display:grid; grid-template-columns:1.4fr repeat(3,minmax(140px,.6fr)) auto; gap:10px; margin-bottom:18px;
+  backdrop-filter:blur(16px);
+}
+input,select {
+  width:100%; border:1px solid var(--line); background:#0d1118; color:var(--text); border-radius:12px; padding:11px 12px; outline:none;
+}
+input:focus,select:focus { border-color:var(--accent); }
+.btn {
+  border:1px solid var(--line); background:#151b25; color:var(--text); border-radius:12px; padding:11px 14px; font-weight:700;
+}
+.btn:hover { transform:translateY(-1px); border-color:#3b4556; }
+.btn.primary { background:linear-gradient(135deg,var(--accent),#5d6de9); border:none; }
+.segment { display:flex; gap:8px; margin:18px 0; }
+.segment button.active { background:var(--accent); border-color:transparent; }
+.results-head { display:flex; align-items:end; justify-content:space-between; gap:16px; margin:22px 0 12px; }
+.results-head h2 { margin:0; font-size:28px; }
+.results-head p { margin:4px 0 0; color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.card {
+  border-radius:var(--radius); padding:18px; min-height:290px; display:flex; flex-direction:column; position:relative; transition:.18s ease;
+}
+.card:hover { transform:translateY(-3px); border-color:#3c4658; }
+.card.favorite { box-shadow:0 0 0 1px rgba(255,189,89,.45), var(--shadow); }
+.topline { display:flex; justify-content:space-between; gap:10px; align-items:center; margin-bottom:16px; }
+.rank { font-weight:900; font-size:24px; }
+.platform { font-size:12px; padding:6px 9px; border-radius:999px; background:#0d1118; border:1px solid var(--line); }
+.card h3 { margin:0 0 7px; font-size:20px; line-height:1.18; }
+.genre { color:var(--accent2); font-size:13px; font-weight:700; }
+.why { color:var(--muted); font-size:14px; line-height:1.5; margin:13px 0; }
+.fitrow { margin-top:auto; }
+.fitlabel { display:flex; justify-content:space-between; font-size:12px; color:#cdd5e2; margin-bottom:7px; }
+.bar { height:8px; background:#0b0f15; border-radius:999px; overflow:hidden; border:1px solid #202736; }
+.bar > i { display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+.badges { display:flex; gap:6px; flex-wrap:wrap; margin:12px 0; }
+.badge { font-size:11px; padding:5px 7px; border-radius:8px; background:#0c121a; color:#bdc8d7; border:1px solid var(--line); }
+.badge.fps { color:#ffe2ad; border-color:#594923; }
+.actions { display:grid; grid-template-columns:1fr auto auto; gap:7px; margin-top:12px; }
+.iconbtn { width:40px; padding:0; display:grid; place-items:center; }
+.strategy { border-radius:24px; padding:24px; margin-top:30px; }
+.strategy-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.strategy article { padding:18px; background:var(--panel2); border:1px solid var(--line); border-radius:16px; }
+.strategy h3 { margin-top:0; }
+.strategy ul { color:var(--muted); line-height:1.7; padding-left:18px; }
+.compare-drawer {
+  position:fixed; left:50%; bottom:18px; transform:translateX(-50%); width:min(1000px,calc(100% - 24px));
+  border-radius:18px; padding:12px; z-index:30; display:none; align-items:center; gap:10px; backdrop-filter:blur(18px);
+}
+.compare-drawer.show { display:flex; }
+.compare-items { display:flex; gap:8px; overflow:auto; flex:1; }
+.compare-pill { white-space:nowrap; background:#0d1118; border:1px solid var(--line); border-radius:999px; padding:8px 10px; font-size:12px; }
+.modal {
+  position:fixed; inset:0; background:rgba(3,5,8,.76); display:none; place-items:center; padding:20px; z-index:50;
+}
+.modal.show { display:grid; }
+.modal-card { width:min(980px,100%); max-height:90vh; overflow:auto; border-radius:24px; padding:24px; }
+.modal-head { display:flex; justify-content:space-between; gap:16px; align-items:start; }
+.modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.radar { width:100%; aspect-ratio:1; background:#0d1118; border:1px solid var(--line); border-radius:18px; }
+.score-table { width:100%; border-collapse:collapse; }
+.score-table td { border-bottom:1px solid var(--line); padding:10px 4px; }
+.score-table td:last-child { text-align:right; font-weight:800; }
+.empty { grid-column:1/-1; padding:50px; text-align:center; color:var(--muted); border:1px dashed var(--line); border-radius:18px; }
+footer { color:var(--muted); padding:30px 0 100px; font-size:12px; }
+@media(max-width:1100px) {
+  .hero { grid-template-columns:1fr; } .toolbar { grid-template-columns:1fr 1fr 1fr; }
+  .toolbar input { grid-column:1/-1; } .grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:680px) {
+  .shell { padding:16px; } .hero-main { padding:24px; } .grid { grid-template-columns:1fr; }
+  .toolbar { position:static; grid-template-columns:1fr; } .toolbar input { grid-column:auto; }
+  .strategy-grid,.modal-grid { grid-template-columns:1fr; } .compare-drawer { align-items:stretch; flex-direction:column; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <section class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">Reporte interactivo · PS5 + Switch 2</div>
+      <h1>40 juegos que realmente encajan contigo</h1>
+      <p>Selección construida alrededor de sandbox, RPG, builds, exploración y sistemas profundos, pero abriendo el abanico a roguelike, deportes, estrategia, horror, carreras, plataformas y competitivo.</p>
+      <div class="chips">
+        <span class="chip">Sandbox primero</span><span class="chip">Buildcrafting</span><span class="chip">Exploración</span>
+        <span class="chip">PS5: prioridad 60 FPS</span><span class="chip">Switch 2: portátil + exclusivas</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="stat"><strong>40</strong><span>recomendaciones totales</span></div>
+      <div class="stat"><strong>20 + 20</strong><span>PS5 / Switch 2</span></div>
+      <div class="stat"><strong id="favCount">0</strong><span>favoritos guardados localmente</span></div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <input id="search" placeholder="Buscar juego, género o etiqueta…">
+    <select id="platform"><option value="all">Todas las plataformas</option><option>PS5</option><option>Switch 2</option></select>
+    <select id="genre"><option value="all">Todos los géneros</option></select>
+    <select id="sort">
+      <option value="rank">Orden recomendado</option>
+      <option value="fitDesc">Afinidad: mayor a menor</option>
+      <option value="title">Título A–Z</option>
+      <option value="sandbox">Sandbox: mayor a menor</option>
+      <option value="builds">Builds: mayor a menor</option>
+    </select>
+    <button class="btn primary" id="randomBtn">Sorpréndeme</button>
+  </div>
+
+  <div class="segment">
+    <button class="btn active" data-view="all">Todos</button>
+    <button class="btn" data-view="favorites">Favoritos</button>
+    <button class="btn" data-view="60fps">60 FPS / rendimiento</button>
+  </div>
+
+  <div class="results-head">
+    <div><h2 id="sectionTitle">Tus recomendaciones</h2><p id="countText"></p></div>
+    <button class="btn" id="resetBtn">Limpiar filtros</button>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <section class="strategy">
+    <div class="eyebrow">Cómo repartir las compras</div>
+    <h2>Usa cada consola para lo que hace mejor</h2>
+    <div class="strategy-grid">
+      <article>
+        <h3>PS5 = potencia, respuesta y pantalla grande</h3>
+        <ul>
+          <li>KCD2, Elden Ring, Cyberpunk, Returnal y Armored Core VI.</li>
+          <li>Prioriza aquí combate exigente, imagen, input lag y modos de 60 FPS.</li>
+          <li>Gran Turismo 7, Stellar Blade y Resident Evil 4 también se benefician mucho del formato.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Switch 2 = portátil, Nintendo y runs</h3>
+        <ul>
+          <li>BOTW → TOTK como secuencia recomendada.</li>
+          <li>Hades II, Pokémon, Fantasy Life i, Civilization VII y Xenoblade ganan mucho en portátil.</li>
+          <li>Metroid Prime 4 destaca especialmente por sus modos 60/120 FPS.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</div>
+
+<div class="compare-drawer" id="compareDrawer">
+  <div class="compare-items" id="compareItems"></div>
+  <button class="btn primary" id="compareOpen">Comparar</button>
+  <button class="btn" id="compareClear">Vaciar</button>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div><div class="eyebrow" id="modalPlatform"></div><h2 id="modalTitle"></h2><p id="modalGenre" class="genre"></p></div>
+      <button class="btn iconbtn" id="modalClose">×</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<footer class="shell">Reporte standalone. Favoritos y selección de comparación se guardan en tu navegador mediante localStorage.</footer>
+
+<script>
+const games = [{"rank": 1, "platform": "PS5", "title": "Kingdom Come: Deliverance II", "genre": "Sandbox / RPG", "fit": 10.0, "fps": "60 FPS Performance", "why": "Simulación, libertad, progresión y consecuencias. El mundo reacciona a cómo juegas.", "tags": ["sandbox", "rpg", "simulación", "exploración", "progresión"], "scores": {"Sandbox": 10, "Builds": 8, "Exploración": 9, "Combate": 8, "Progresión": 10}}, {"rank": 2, "platform": "PS5", "title": "Cyberpunk 2077 + Phantom Liberty", "genre": "Open world / RPG", "fit": 9.9, "fps": "60 FPS Performance", "why": "Builds profundas, ciudad abierta, cyberware, quests y estilos de juego muy distintos.", "tags": ["open world", "rpg", "builds", "acción", "exploración"], "scores": {"Sandbox": 8, "Builds": 10, "Exploración": 9, "Combate": 9, "Progresión": 9}}, {"rank": 3, "platform": "PS5", "title": "Elden Ring", "genre": "Action RPG / Open world", "fit": 9.8, "fps": "Modo rendimiento variable", "why": "Exploración excepcional y buildcrafting enorme; libertad para perderte y armar personajes completamente distintos.", "tags": ["open world", "rpg", "builds", "souls", "exploración"], "scores": {"Sandbox": 7, "Builds": 10, "Exploración": 10, "Combate": 10, "Progresión": 9}}, {"rank": 4, "platform": "PS5", "title": "Returnal", "genre": "Roguelike / Shooter", "fit": 9.7, "fps": "60 FPS objetivo", "why": "Runs, adaptación, armas, traits y un skill ceiling altísimo.", "tags": ["roguelike", "shooter", "builds", "acción", "runs"], "scores": {"Sandbox": 3, "Builds": 9, "Exploración": 8, "Combate": 10, "Progresión": 8}}, {"rank": 5, "platform": "PS5", "title": "Armored Core VI", "genre": "Acción / Mechas", "fit": 9.7, "fps": "60 FPS Performance", "why": "Construir el mech es construir la build: peso, energía, movilidad, armas y estilo de combate.", "tags": ["acción", "mechas", "builds", "optimización"], "scores": {"Sandbox": 3, "Builds": 10, "Exploración": 5, "Combate": 10, "Progresión": 9}}, {"rank": 6, "platform": "PS5", "title": "Ghost of Tsushima Director's Cut", "genre": "Open world / Acción", "fit": 9.6, "fps": "Hasta 60 FPS", "why": "Exploración limpia, combate excelente, sigilo y un mundo abierto muy agradable de recorrer.", "tags": ["open world", "acción", "sigilo", "exploración"], "scores": {"Sandbox": 7, "Builds": 7, "Exploración": 9, "Combate": 9, "Progresión": 8}}, {"rank": 7, "platform": "PS5", "title": "Death Stranding 2", "genre": "Aventura / Open world", "fit": 9.5, "fps": "Modo rendimiento", "why": "Logística, rutas, carga, vehículos y optimización dentro de un open world muy particular.", "tags": ["open world", "logística", "exploración", "sistemas"], "scores": {"Sandbox": 8, "Builds": 6, "Exploración": 9, "Combate": 7, "Progresión": 9}}, {"rank": 8, "platform": "PS5", "title": "Hades II", "genre": "Roguelike / Acción", "fit": 9.5, "fps": "60 / hasta 120 Hz", "why": "Sinergias, builds, runs y progresión permanente; ideal para experimentar con combinaciones.", "tags": ["roguelike", "acción", "builds", "runs"], "scores": {"Sandbox": 3, "Builds": 10, "Exploración": 6, "Combate": 10, "Progresión": 9}}, {"rank": 9, "platform": "PS5", "title": "Resident Evil 4 Remake", "genre": "Survival horror / Acción", "fit": 9.4, "fps": "60 FPS Performance", "why": "Recursos, armas, upgrades, rejugabilidad y combate muy pulido.", "tags": ["horror", "acción", "upgrades", "replay"], "scores": {"Sandbox": 3, "Builds": 7, "Exploración": 7, "Combate": 9, "Progresión": 9}}, {"rank": 10, "platform": "PS5", "title": "Stellar Blade", "genre": "Action RPG", "fit": 9.4, "fps": "60 FPS Performance", "why": "Parry, dodge, skill trees y builds en un combate muy fluido.", "tags": ["acción", "rpg", "parry", "builds"], "scores": {"Sandbox": 4, "Builds": 8, "Exploración": 7, "Combate": 10, "Progresión": 9}}, {"rank": 11, "platform": "PS5", "title": "Final Fantasy VII Rebirth", "genre": "JRPG / Acción", "fit": 9.3, "fps": "60 FPS Performance", "why": "Party building, materias, sinergias y combate con mucha profundidad.", "tags": ["jrpg", "acción", "party", "builds"], "scores": {"Sandbox": 5, "Builds": 9, "Exploración": 8, "Combate": 9, "Progresión": 9}}, {"rank": 12, "platform": "PS5", "title": "Like a Dragon: Infinite Wealth", "genre": "JRPG", "fit": 9.3, "fps": "60 FPS", "why": "Turnos, clases, equipo y una cantidad absurda de sistemas y minijuegos.", "tags": ["jrpg", "turnos", "clases", "minijuegos"], "scores": {"Sandbox": 6, "Builds": 9, "Exploración": 8, "Combate": 8, "Progresión": 9}}, {"rank": 13, "platform": "PS5", "title": "Gran Turismo 7", "genre": "Simulación / Carreras", "fit": 9.2, "fps": "60 FPS", "why": "Tuning, colección, telemetría y mejora continua: casi un RPG de autos.", "tags": ["carreras", "simulación", "tuning", "optimización"], "scores": {"Sandbox": 5, "Builds": 8, "Exploración": 3, "Combate": 8, "Progresión": 9}}, {"rank": 14, "platform": "PS5", "title": "Helldivers 2", "genre": "Shooter cooperativo", "fit": 9.1, "fps": "60 FPS Performance", "why": "Builds de equipo, estratagemas y caos emergente en cooperativo.", "tags": ["shooter", "coop", "acción", "builds"], "scores": {"Sandbox": 4, "Builds": 8, "Exploración": 5, "Combate": 10, "Progresión": 8}}, {"rank": 15, "platform": "PS5", "title": "Astro Bot", "genre": "Plataformas", "fit": 9.1, "fps": "60 FPS", "why": "Gameplay puro, creatividad constante y una ejecución extremadamente pulida.", "tags": ["plataformas", "acción", "creatividad"], "scores": {"Sandbox": 2, "Builds": 2, "Exploración": 7, "Combate": 7, "Progresión": 6}}, {"rank": 16, "platform": "PS5", "title": "Ratchet & Clank: Rift Apart", "genre": "Acción / Plataformas", "fit": 9.0, "fps": "60 FPS Performance", "why": "Armas, movilidad y espectáculo técnico de PS5.", "tags": ["acción", "plataformas", "armas"], "scores": {"Sandbox": 3, "Builds": 6, "Exploración": 7, "Combate": 9, "Progresión": 8}}, {"rank": 17, "platform": "PS5", "title": "Split Fiction", "genre": "Cooperativo / Aventura", "fit": 9.0, "fps": "60 FPS", "why": "Variedad mecánica constante y excelente para jugar acompañado.", "tags": ["coop", "aventura", "acción"], "scores": {"Sandbox": 2, "Builds": 3, "Exploración": 6, "Combate": 8, "Progresión": 6}}, {"rank": 18, "platform": "PS5", "title": "God of War Ragnarök", "genre": "Acción / Aventura", "fit": 8.9, "fps": "60 FPS Performance", "why": "Combate, progresión y una campaña de enorme calidad.", "tags": ["acción", "aventura", "rpg", "progresión"], "scores": {"Sandbox": 3, "Builds": 8, "Exploración": 7, "Combate": 10, "Progresión": 9}}, {"rank": 19, "platform": "PS5", "title": "DOOM: The Dark Ages", "genre": "FPS", "fit": 8.9, "fps": "60 FPS", "why": "Acción agresiva, ritmo alto y dominio mecánico.", "tags": ["fps", "acción", "shooter"], "scores": {"Sandbox": 2, "Builds": 5, "Exploración": 5, "Combate": 10, "Progresión": 7}}, {"rank": 20, "platform": "PS5", "title": "Persona 5 Royal", "genre": "JRPG / Social", "fit": 8.8, "fps": "60 FPS", "why": "Party building, sistemas sociales y colección de Personas con ADN Pokémon.", "tags": ["jrpg", "turnos", "colección", "social"], "scores": {"Sandbox": 3, "Builds": 9, "Exploración": 6, "Combate": 8, "Progresión": 10}}, {"rank": 1, "platform": "Switch 2", "title": "Zelda: Tears of the Kingdom – Switch 2 Edition", "genre": "Sandbox / Aventura", "fit": 10.0, "fps": "Mejorado en Switch 2", "why": "Sandbox sistémico: construcción, física, exploración y libertad creativa casi total.", "tags": ["sandbox", "aventura", "física", "exploración", "construcción"], "scores": {"Sandbox": 10, "Builds": 7, "Exploración": 10, "Combate": 8, "Progresión": 9}}, {"rank": 2, "platform": "Switch 2", "title": "The Elder Scrolls IV: Oblivion Remastered", "genre": "Sandbox / RPG", "fit": 9.9, "fps": "Versión Switch 2", "why": "Elder Scrolls portátil: quests, roleplay, builds, exploración y libertad.", "tags": ["sandbox", "rpg", "open world", "exploración", "builds"], "scores": {"Sandbox": 10, "Builds": 9, "Exploración": 10, "Combate": 7, "Progresión": 10}}, {"rank": 3, "platform": "Switch 2", "title": "No Man's Sky – Switch 2 Edition", "genre": "Sandbox / Survival", "fit": 9.8, "fps": "Mejorado en Switch 2", "why": "Explorar planetas, construir bases, mejorar naves y crear tus propios objetivos.", "tags": ["sandbox", "survival", "construcción", "exploración", "crafting"], "scores": {"Sandbox": 10, "Builds": 7, "Exploración": 10, "Combate": 6, "Progresión": 9}}, {"rank": 4, "platform": "Switch 2", "title": "Breath of the Wild – Switch 2 Edition", "genre": "Open world / Sandbox", "fit": 9.7, "fps": "Mejorado en Switch 2", "why": "Exploración pura, física y libertad para resolver problemas como quieras.", "tags": ["sandbox", "open world", "exploración", "aventura"], "scores": {"Sandbox": 9.5, "Builds": 6, "Exploración": 10, "Combate": 8, "Progresión": 8}}, {"rank": 5, "platform": "Switch 2", "title": "Fantasy Life i – Switch 2 Edition", "genre": "Sandbox / Life RPG", "fit": 9.7, "fps": "Versión Switch 2", "why": "14 profesiones, crafting, combate, recolección y construcción; muy fácil perder horas.", "tags": ["sandbox", "life sim", "rpg", "crafting", "construcción"], "scores": {"Sandbox": 9, "Builds": 8, "Exploración": 9, "Combate": 7, "Progresión": 10}}, {"rank": 6, "platform": "Switch 2", "title": "Pokémon Legends: Z-A – Switch 2 Edition", "genre": "Pokémon / Action RPG", "fit": 9.6, "fps": "Mejorado en Switch 2", "why": "Pokémon, Megas, exploración y un combate más activo.", "tags": ["pokemon", "rpg", "colección", "exploración"], "scores": {"Sandbox": 6, "Builds": 8, "Exploración": 8, "Combate": 8, "Progresión": 9}}, {"rank": 7, "platform": "Switch 2", "title": "Digimon Story: Time Stranger", "genre": "Monster collecting / JRPG", "fit": 9.6, "fps": "Hasta 60 FPS", "why": "Más de 450 Digimon y un sistema profundo de evolución, crianza y personalización.", "tags": ["digimon", "jrpg", "colección", "builds"], "scores": {"Sandbox": 4, "Builds": 10, "Exploración": 7, "Combate": 8, "Progresión": 10}}, {"rank": 8, "platform": "Switch 2", "title": "Pokémon Champions", "genre": "Estrategia / Competitivo", "fit": 9.5, "fps": "Mejorado en Switch 2", "why": "Team building, matchups, VGC, HOME y competitividad pura.", "tags": ["pokemon", "estrategia", "competitivo", "builds"], "scores": {"Sandbox": 1, "Builds": 10, "Exploración": 1, "Combate": 10, "Progresión": 7}}, {"rank": 9, "platform": "Switch 2", "title": "Hades II – Switch 2 Edition", "genre": "Roguelike", "fit": 9.5, "fps": "60 portátil / hasta 120 dock", "why": "Runs rápidas, builds y sinergias; formato perfecto para portátil.", "tags": ["roguelike", "acción", "builds", "runs"], "scores": {"Sandbox": 3, "Builds": 10, "Exploración": 6, "Combate": 10, "Progresión": 9}}, {"rank": 10, "platform": "Switch 2", "title": "Metroid Prime 4: Beyond", "genre": "FPS / Metroidvania", "fit": 9.4, "fps": "4K/60 o 1080p/120 dock", "why": "Exploración, escaneo, atmósfera y opciones de alta tasa de refresco.", "tags": ["fps", "metroidvania", "exploración", "acción"], "scores": {"Sandbox": 4, "Builds": 6, "Exploración": 10, "Combate": 9, "Progresión": 8}}, {"rank": 11, "platform": "Switch 2", "title": "Cyberpunk 2077 Ultimate Edition", "genre": "Open world / RPG", "fit": 9.4, "fps": "Versión Switch 2", "why": "AAA enorme, builds, quests y libertad en portátil.", "tags": ["open world", "rpg", "builds", "acción"], "scores": {"Sandbox": 8, "Builds": 10, "Exploración": 9, "Combate": 9, "Progresión": 9}}, {"rank": 12, "platform": "Switch 2", "title": "Mario Kart World", "genre": "Carreras / Open world", "fit": 9.3, "fps": "60 FPS", "why": "Carreras con mundo interconectado, exploración y multiplayer inmediato.", "tags": ["carreras", "open world", "multiplayer"], "scores": {"Sandbox": 6, "Builds": 4, "Exploración": 8, "Combate": 8, "Progresión": 7}}, {"rank": 13, "platform": "Switch 2", "title": "Pokémon Pokopia", "genre": "Sandbox / Life sim", "fit": 9.3, "fps": "Switch 2", "why": "Pokémon, construcción, gestión y una propuesta muy relajada de sandbox.", "tags": ["pokemon", "sandbox", "life sim", "construcción"], "scores": {"Sandbox": 9, "Builds": 6, "Exploración": 8, "Combate": 3, "Progresión": 9}}, {"rank": 14, "platform": "Switch 2", "title": "Donkey Kong Bananza", "genre": "Plataformas / Sandbox físico", "fit": 9.2, "fps": "Switch 2", "why": "Destruir y excavar el escenario es parte central del gameplay.", "tags": ["plataformas", "sandbox", "física", "acción"], "scores": {"Sandbox": 8, "Builds": 3, "Exploración": 9, "Combate": 8, "Progresión": 7}}, {"rank": 15, "platform": "Switch 2", "title": "Xenoblade Chronicles Definitive Edition", "genre": "JRPG / Open world", "fit": 9.2, "fps": "60 FPS", "why": "Mundo enorme, sistemas RPG, party y exploración prolongada.", "tags": ["jrpg", "open world", "party", "exploración"], "scores": {"Sandbox": 6, "Builds": 9, "Exploración": 10, "Combate": 8, "Progresión": 9}}, {"rank": 16, "platform": "Switch 2", "title": "Yakuza 0 Director's Cut", "genre": "Acción / RPG", "fit": 9.1, "fps": "Switch 2", "why": "Sandbox urbano compacto, combate y una cantidad absurda de actividades secundarias.", "tags": ["acción", "rpg", "sandbox", "minijuegos"], "scores": {"Sandbox": 7, "Builds": 6, "Exploración": 8, "Combate": 9, "Progresión": 8}}, {"rank": 17, "platform": "Switch 2", "title": "Street Fighter 6", "genre": "Fighting", "fit": 9.0, "fps": "60 FPS", "why": "Competitivo, técnico y con un skill ceiling enorme.", "tags": ["fighting", "competitivo", "acción"], "scores": {"Sandbox": 2, "Builds": 4, "Exploración": 4, "Combate": 10, "Progresión": 8}}, {"rank": 18, "platform": "Switch 2", "title": "Split Fiction", "genre": "Coop / Aventura", "fit": 9.0, "fps": "60 FPS", "why": "Mecánicas que cambian constantemente y gran experiencia cooperativa.", "tags": ["coop", "aventura", "acción"], "scores": {"Sandbox": 2, "Builds": 3, "Exploración": 6, "Combate": 8, "Progresión": 6}}, {"rank": 19, "platform": "Switch 2", "title": "Civilization VII – Switch 2 Edition", "genre": "Estrategia 4X", "fit": 8.9, "fps": "Switch 2", "why": "Planificación, sistemas, optimización y el clásico efecto de 'un turno más'.", "tags": ["estrategia", "4x", "gestión", "optimización"], "scores": {"Sandbox": 7, "Builds": 8, "Exploración": 5, "Combate": 7, "Progresión": 10}}, {"rank": 20, "platform": "Switch 2", "title": "Splatoon Raiders", "genre": "Shooter / Acción", "fit": 8.9, "fps": "Switch 2", "why": "Armas, gadgets, progreso y exploración dentro del universo Splatoon.", "tags": ["shooter", "acción", "progresión"], "scores": {"Sandbox": 5, "Builds": 7, "Exploración": 7, "Combate": 9, "Progresión": 8}}];
+const state = {
+  view:"all", compare:[], favorites:new Set(JSON.parse(localStorage.getItem("gameFavs")||"[]"))
+};
+const $ = s => document.querySelector(s);
+const grid=$("#grid"), search=$("#search"), platform=$("#platform"), genre=$("#genre"), sort=$("#sort");
+
+const genres=[...new Set(games.map(g=>g.genre))].sort();
+genres.forEach(g=>genre.insertAdjacentHTML("beforeend",`<option>${g}</option>`));
+
+function esc(s) { return s.replace(/[&<>"']/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
+function is60(g) { return /60|120/.test(g.fps); }
+function saveFavs() {
+  localStorage.setItem("gameFavs", JSON.stringify([...state.favorites]));
+  $("#favCount").textContent=state.favorites.size;
+}
+function getFiltered() {
+  let arr=[...games];
+  const q=search.value.trim().toLowerCase();
+  if(q) arr=arr.filter(g => [g.title,g.genre,g.why,...g.tags].join(" ").toLowerCase().includes(q));
+  if(platform.value!=="all") arr=arr.filter(g=>g.platform===platform.value);
+  if(genre.value!=="all") arr=arr.filter(g=>g.genre===genre.value);
+  if(state.view==="favorites") arr=arr.filter(g=>state.favorites.has(g.title));
+  if(state.view==="60fps") arr=arr.filter(is60);
+  if(sort.value==="fitDesc") arr.sort((a,b)=>b.fit-a.fit);
+  else if(sort.value==="title") arr.sort((a,b)=>a.title.localeCompare(b.title));
+  else if(sort.value==="sandbox") arr.sort((a,b)=>b.scores.Sandbox-a.scores.Sandbox);
+  else if(sort.value==="builds") arr.sort((a,b)=>b.scores.Builds-a.scores.Builds);
+  else arr.sort((a,b)=> a.platform===b.platform ? a.rank-b.rank : a.platform.localeCompare(b.platform));
+  return arr;
+}
+function card(g) {
+  const fav=state.favorites.has(g.title);
+  const compared=state.compare.includes(g.title);
+  return `<article class="card ${fav?"favorite":""}">
+    <div class="topline"><span class="rank">#${g.rank}</span><span class="platform">${g.platform}</span></div>
+    <h3>${esc(g.title)}</h3><div class="genre">${esc(g.genre)}</div>
+    <div class="badges">
+      <span class="badge fps">${esc(g.fps)}</span>
+      ${g.tags.slice(0,3).map(t=>`<span class="badge">${esc(t)}</span>`).join("")}
+    </div>
+    <p class="why">${esc(g.why)}</p>
+    <div class="fitrow"><div class="fitlabel"><span>Afinidad estimada</span><strong>${g.fit.toFixed(1)}/10</strong></div>
+      <div class="bar"><i style="width:${g.fit*10}%"></i></div></div>
+    <div class="actions">
+      <button class="btn" onclick="openGame('${encodeURIComponent(g.title)}')">Ver ficha</button>
+      <button class="btn iconbtn" title="Favorito" onclick="toggleFav('${encodeURIComponent(g.title)}')">${fav?"★":"☆"}</button>
+      <button class="btn iconbtn" title="Comparar" onclick="toggleCompare('${encodeURIComponent(g.title)}')">${compared?"✓":"+"}</button>
+    </div>
+  </article>`;
+}
+function render() {
+  const arr=getFiltered();
+  grid.innerHTML=arr.length?arr.map(card).join(""):`<div class="empty">No hay juegos que coincidan con esos filtros.</div>`;
+  $("#countText").textContent=`${arr.length} juegos visibles`;
+  saveFavs(); renderCompare();
+}
+window.toggleFav=function(t) {
+  t=decodeURIComponent(t);
+  state.favorites.has(t)?state.favorites.delete(t):state.favorites.add(t);
+  render();
+}
+window.toggleCompare=function(t) {
+  t=decodeURIComponent(t);
+  if(state.compare.includes(t)) state.compare=state.compare.filter(x=>x!==t);
+  else {
+    if(state.compare.length>=4) state.compare.shift();
+    state.compare.push(t);
+  }
+  render();
+}
+function renderCompare() {
+  const drawer=$("#compareDrawer");
+  drawer.classList.toggle("show",state.compare.length>0);
+  $("#compareItems").innerHTML=state.compare.map(t=>`<span class="compare-pill">${esc(t)}</span>`).join("");
+}
+function radar(canvas, scores) {
+  const ctx=canvas.getContext("2d"), dpr=window.devicePixelRatio||1, size=canvas.clientWidth;
+  canvas.width=size*dpr; canvas.height=size*dpr; ctx.scale(dpr,dpr);
+  const cx=size/2, cy=size/2, r=size*.34, keys=Object.keys(scores), n=keys.length;
+  ctx.clearRect(0,0,size,size); ctx.lineWidth=1;
+  for(let level=2;level<=10;level+=2){
+    ctx.beginPath();
+    keys.forEach((k,i)=>{
+      const a=-Math.PI/2+i*2*Math.PI/n, rr=r*(level/10);
+      const x=cx+Math.cos(a)*rr, y=cy+Math.sin(a)*rr;
+      i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }); ctx.closePath(); ctx.strokeStyle="#263041"; ctx.stroke();
+  }
+  ctx.beginPath();
+  keys.forEach((k,i)=>{
+    const a=-Math.PI/2+i*2*Math.PI/n, rr=r*(scores[k]/10);
+    const x=cx+Math.cos(a)*rr, y=cy+Math.sin(a)*rr;
+    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+  });
+  ctx.closePath(); ctx.fillStyle="rgba(124,140,255,.22)"; ctx.fill(); ctx.strokeStyle="#7c8cff"; ctx.lineWidth=2; ctx.stroke();
+  ctx.fillStyle="#cfd7e5"; ctx.font="12px system-ui"; ctx.textAlign="center";
+  keys.forEach((k,i)=>{
+    const a=-Math.PI/2+i*2*Math.PI/n, rr=r*1.22;
+    ctx.fillText(k,cx+Math.cos(a)*rr,cy+Math.sin(a)*rr+4);
+  });
+}
+window.openGame=function(t) {
+  const title=decodeURIComponent(t), g=games.find(x=>x.title===title);
+  $("#modalPlatform").textContent=g.platform; $("#modalTitle").textContent=g.title; $("#modalGenre").textContent=g.genre;
+  $("#modalBody").innerHTML=`<div class="modal-grid">
+    <div><canvas class="radar" id="radar"></canvas></div>
+    <div>
+      <p class="why" style="font-size:16px">${esc(g.why)}</p>
+      <table class="score-table">${Object.entries(g.scores).map(([k,v])=>`<tr><td>${k}</td><td>${v}/10</td></tr>`).join("")}</table>
+      <div class="badges" style="margin-top:16px"><span class="badge fps">${esc(g.fps)}</span>${g.tags.map(t=>`<span class="badge">${esc(t)}</span>`).join("")}</div>
+      <button class="btn primary" style="margin-top:12px" onclick="toggleFav('${encodeURIComponent(g.title)}')">${state.favorites.has(g.title)?"Quitar de favoritos":"Guardar en favoritos"}</button>
+    </div>
+  </div>`;
+  $("#modal").classList.add("show"); requestAnimationFrame(()=>radar($("#radar"),g.scores));
+}
+function openComparison() {
+  const list=state.compare.map(t=>games.find(g=>g.title===t));
+  $("#modalPlatform").textContent="Comparador"; $("#modalTitle").textContent="Comparación lado a lado"; $("#modalGenre").textContent=`${list.length} juegos seleccionados`;
+  const dims=["Sandbox","Builds","Exploración","Combate","Progresión"];
+  $("#modalBody").innerHTML=`<div style="overflow:auto"><table class="score-table">
+    <tr><td><strong>Criterio</strong></td>${list.map(g=>`<td><strong>${esc(g.title)}</strong></td>`).join("")}</tr>
+    <tr><td>Afinidad</td>${list.map(g=>`<td>${g.fit.toFixed(1)}</td>`).join("")}</tr>
+    <tr><td>FPS</td>${list.map(g=>`<td>${esc(g.fps)}</td>`).join("")}</tr>
+    ${dims.map(d=>`<tr><td>${d}</td>${list.map(g=>`<td>${g.scores[d]}/10</td>`).join("")}</tr>`).join("")}
+  </table></div>`;
+  $("#modal").classList.add("show");
+}
+$("#compareOpen").onclick=openComparison;
+$("#compareClear").onclick=()=>{state.compare=[];render();};
+$("#modalClose").onclick=()=>$("#modal").classList.remove("show");
+$("#modal").onclick=e=>{if(e.target.id==="modal")$("#modal").classList.remove("show");};
+[search,platform,genre,sort].forEach(el=>el.addEventListener("input",render));
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>{
+  state.view=b.dataset.view;
+  document.querySelectorAll("[data-view]").forEach(x=>x.classList.toggle("active",x===b)); render();
+});
+$("#resetBtn").onclick=()=>{ search.value=""; platform.value="all"; genre.value="all"; sort.value="rank"; state.view="all"; document.querySelectorAll("[data-view]").forEach((b,i)=>b.classList.toggle("active",i===0)); render(); };
+$("#randomBtn").onclick=()=>{
+  const arr=getFiltered(); if(!arr.length)return;
+  openGame(encodeURIComponent(arr[Math.floor(Math.random()*arr.length)].title));
+};
+document.addEventListener("keydown",e=>{
+  if(e.key==="/"){e.preventDefault();search.focus();}
+  if(e.key==="Escape")$("#modal").classList.remove("show");
+});
+render();
+</script>
+</body>
+</html>
